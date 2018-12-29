@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="apMother" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appController.LoginController">
+   <children>
+      <AnchorPane fx:id="panelogin" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2A3F54;" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
+         <children>
+            <VBox alignment="TOP_CENTER" layoutX="48.0" layoutY="66.0" prefHeight="200.0" prefWidth="100.0" spacing="50.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label text="Authentification" textFill="WHITE">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+                  <VBox prefHeight="200.0" prefWidth="100.0" spacing="50.0">
+                     <children>
+                        <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+                           <children>
+                              <FontAwesomeIconView fill="WHITE" glyphName="USER" size="30.0" />
+                              <JFXTextField fx:id="identifiantfield" focusColor="WHITE" labelFloat="true" onAction="#connecterOnAction" prefHeight="35.0" prefWidth="316.0" promptText="Identifiant" style="-fx-background-color: white;" unFocusColor="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </JFXTextField>
+                           </children>
+                        </HBox>
+                        <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+                           <children>
+                              <FontAwesomeIconView fill="WHITE" glyphName="LOCK" size="30.0" />
+                              <JFXPasswordField fx:id="passfield" focusColor="WHITE" labelFloat="true" onAction="#connecterOnAction" prefHeight="35.0" prefWidth="334.0" promptText="mot de passe" style="-fx-background-color: white;" unFocusColor="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </JFXPasswordField>
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="40.0" />
+                     </padding>
+                  </VBox>
+                  <JFXButton fx:id="seconnecter" buttonType="RAISED" onAction="#connecterOnAction" prefHeight="47.0" prefWidth="143.0" style="-fx-border-color: white;" text="Se connecter" textFill="WHITE">
+                     <font>
+                        <Font name="Maiandra GD" size="14.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIconView fill="WHITE" glyphName="EXPAND" size="15.0" />
+                     </graphic></JFXButton>
+               </children>
+               <padding>
+                  <Insets bottom="20.0" />
+               </padding>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <VBox fx:id="box" alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="420.0" AnchorPane.topAnchor="50.0">
+         <children>
+            <Label text="Dépot" underline="true">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <JFXToggleButton fx:id="militairedepot" contentDisplay="BOTTOM" onAction="#depotOnaction" text="Militaire">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="selectionDepot" />
+                     </toggleGroup>
+                  </JFXToggleButton>
+                  <JFXToggleButton fx:id="glaceDepot" contentDisplay="BOTTOM" onAction="#depotOnaction" text="Glacerie" toggleGroup="$selectionDepot" />
+                  <JFXToggleButton fx:id="patDepot" contentDisplay="BOTTOM" onAction="#depotOnaction" text="Patisserie" toggleGroup="$selectionDepot" />
+                  <JFXToggleButton fx:id="pizzaDepot" contentDisplay="BOTTOM" onAction="#depotOnaction" text="Pizzeria" toggleGroup="$selectionDepot" />
+                  <JFXToggleButton fx:id="boulDepot" contentDisplay="BOTTOM" layoutX="101.0" layoutY="22.0" onAction="#depotOnaction" text="Boulangerie" toggleGroup="$selectionDepot" />
+               </children>
+            </HBox>
+            <JFXButton fx:id="newuser" contentDisplay="TOP" onAction="#newuserOnaction" prefHeight="50.0" prefWidth="5000.0" text="Nouveau Utilisateur">
+               <graphic>
+                  <FontAwesomeIconView fill="#2a3f54" glyphName="USER" size="40.0" />
+               </graphic>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXButton>
+            <Hyperlink fx:id="bddconfig" onAction="#bddconfigOnAction" text="Paramètres de la base de données">
+               <graphic>
+                  <FontAwesomeIconView fill="#2a3f54" glyphName="DATABASE" size="20.0" />
+               </graphic>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Hyperlink>
+         </children>
+         <padding>
+            <Insets top="50.0" />
+         </padding>
+      </VBox>
+      <Label fx:id="amicale" layoutX="516.0" layoutY="-6.0" text="Amicale">
+         <font>
+            <Font name="Kunstler Script" size="50.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -1,0 +1,19 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 8 août 2018, 12:36:24
+    Author     : Ralande
+*/
+.table-cell:empty {
+-fx-background-color: white;
+-fx-border-color: white;
+}
+.table-view {
+-fx-background-color: white;
+}
+.table-view {
+-fx-border-color: white;
+}

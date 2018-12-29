@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<Group stylesheets="@../../../css/PopUp.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appController.app.stock.AddProductController">
+   <children>
+      <AnchorPane layoutX="20.0" layoutY="20.0" prefHeight="570.0" prefWidth="775.0" stylesheets="@../../../css/MainStyle.css">
+         <children>
+            <Label fx:id="lblHeader" alignment="CENTER" layoutX="4.0" layoutY="14.0" prefHeight="30.0" prefWidth="726.0" text="Ajout Produit">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+            <GridPane hgap="1.0" layoutX="17.0" layoutY="60.0" vgap="1.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="128.0" minWidth="10.0" prefWidth="125.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="134.0" minWidth="10.0" prefWidth="109.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="118.0" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="94.0" minWidth="10.0" prefWidth="87.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="147.0" minWidth="10.0" prefWidth="84.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="161.0" minWidth="10.0" prefWidth="143.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="52.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label text="Produit Id" />
+                  <RadioButton fx:id="rbStatic" mnemonicParsing="false" onAction="#rbStaticOnAction" onMouseClicked="#rbStaticOnClicked" text="Statique" GridPane.columnIndex="1" />
+                  <RadioButton fx:id="rbSeq" mnemonicParsing="false" onAction="#rbSeqOnAction" onMouseClicked="#rbSeqOnClick" text="Sequentielle" GridPane.columnIndex="2" />
+                  <Label text="Nom Produit" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                  <Label text="Nombre" textFill="#2a3f54" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Label>
+                  <Label text="Prix par unité" GridPane.columnIndex="4" />
+                  <Label text="Description" GridPane.rowIndex="11" />
+                  <Label text="Fournisseur" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                  <Label text="Marque" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                  <Label prefHeight="17.0" prefWidth="124.0" text="Categorie dynamique" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="6" />
+                  <Label text="Date :" GridPane.columnIndex="4" GridPane.rowIndex="8" />
+                  <TextField fx:id="tfProductId" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                  <TextField fx:id="tfProductName" GridPane.columnSpan="3" GridPane.rowIndex="3" />
+                  <TextField fx:id="tfProductQuantity" promptText="nombre" style="-fx-border-color: #2A3F54; -fx-border-width: 2;" GridPane.rowIndex="5" />
+                  <TextField fx:id="tfProductPursesPrice" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                  <TextArea fx:id="taProductDescription" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="12" GridPane.rowSpan="3" />
+                  <Pane GridPane.columnIndex="6" GridPane.rowIndex="3">
+                     <children>
+                        <Button fx:id="btnAddSupplier" layoutX="14.0" layoutY="-1.0" mnemonicParsing="false" onAction="#btnAddSupplierOnAction" prefHeight="30.0" prefWidth="30.0" stylesheets="@../../../css/AddButton.css">
+                           <graphic>
+                              <FontAwesomeIconView glyphName="PLUS" size="30.0" style="-fx-fill: red;" />
+                           </graphic></Button>
+                     </children>
+                  </Pane>
+                  <Pane GridPane.columnIndex="6" GridPane.rowIndex="5">
+                     <children>
+                        <Button fx:id="btnAddBrand" layoutX="14.0" mnemonicParsing="false" onAction="#btnAddBrandOnAction" prefHeight="32.0" prefWidth="30.0" stylesheets="@../../../css/AddButton.css">
+                           <graphic>
+                              <FontAwesomeIconView glyphName="PLUS" size="30.0" style="-fx-fill: red;" />
+                           </graphic></Button>
+                     </children>
+                  </Pane>
+                  <Pane GridPane.columnIndex="6" GridPane.rowIndex="7">
+                     <children>
+                        <Button fx:id="btnAddCatagory" layoutX="14.0" mnemonicParsing="false" onAction="#btnAddCatagoryOnAction" prefHeight="30.0" prefWidth="30.0" stylesheets="@../../../css/AddButton.css">
+                           <graphic>
+                              <FontAwesomeIconView glyphName="PLUS" size="30.0" style="-fx-fill: red;" textAlignment="CENTER" />
+                           </graphic></Button>
+                     </children>
+                  </Pane>
+                  <Button fx:id="btnSave" mnemonicParsing="false" onAction="#btnSaveOnAction" text="Sauvegarder" GridPane.columnIndex="2" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="15" />
+                  <TextField fx:id="tfValue" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <ComboBox fx:id="cbSupplyer" onAction="#cbSupplyerOnAction" onMouseClicked="#cbSupplyerOnClicked" prefHeight="33.0" prefWidth="260.0" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                  <ComboBox fx:id="cmbBrand" onAction="#cmbBrandOnAction" onMouseClicked="#cmbBrandOnClick" prefHeight="33.0" prefWidth="259.0" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+                  <ComboBox fx:id="cmbCatagory" onAction="#cmbCatagoryOnAction" onMouseClicked="#cmbCatagoryOnClick" prefHeight="35.0" prefWidth="261.0" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="7" />
+                  <Button fx:id="btnUpdate" mnemonicParsing="false" onAction="#btnUpdateOnAction" text="Mettre à Jour" GridPane.columnIndex="2" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="15" />
+                  <JFXDatePicker fx:id="dpDate" prefHeight="33.0" prefWidth="297.0" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="9" />
+                  <ComboBox fx:id="categoriestatic" disable="true" prefHeight="33.0" prefWidth="200.0" visible="false" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="12" />
+                  <Label prefHeight="17.0" prefWidth="127.0" text="Categorie statique" visible="false" GridPane.columnIndex="4" GridPane.rowIndex="11" />
+                  <JFXComboBox fx:id="unite" focusColor="#6b6c6f" labelFloat="true" onAction="#uniteOnaction" onMouseClicked="#cmbunitecliked" prefHeight="35.0" prefWidth="217.0" promptText="           Unité de Gros" style="-fx-border-color: #2A3F54; -fx-border-width: 2;" unFocusColor="#a4a1a1" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+                  <TextField fx:id="tfProductQuantityCategory" promptText="nombre" style="-fx-border-color: #2A3F54; -fx-border-width: 2;" GridPane.rowIndex="7" />
+                  <JFXComboBox fx:id="unitePiece" focusColor="#6b6c6f" labelFloat="true" onAction="#unitePieceOnaction" onMouseClicked="#cmbunitePiececliked" prefHeight="33.0" prefWidth="213.0" promptText="        Unité du Pièce" style="-fx-border-color: #2A3F54; -fx-border-width: 2;" unFocusColor="#a4a1a1" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="7" />
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="345.0" text="De" textFill="#2a3f54" GridPane.columnSpan="3" GridPane.rowIndex="6" />
+                  <Pane GridPane.columnIndex="4" GridPane.rowIndex="11">
+                     <children>
+                        <Button fx:id="btnAddUnit" layoutX="14.0" mnemonicParsing="false" onAction="#btnAddUnitOnAction" prefHeight="30.0" prefWidth="30.0" stylesheets="@../../../css/AddButton.css">
+                           <graphic>
+                              <FontAwesomeIconView glyphName="PLUS" size="30.0" style="-fx-fill: red;" textAlignment="CENTER" />
+                           </graphic>
+                        </Button>
+                     </children>
+                  </Pane>
+                  <JFXButton onAction="#btnAddUnitOnAction" prefHeight="35.0" prefWidth="148.0" style="-fx-border-radius: 0;" text="Ajout Unité" GridPane.columnIndex="5" GridPane.rowIndex="11" />
+                  <TextField fx:id="tfProductQuantityCategory1" promptText="nombre" style="-fx-border-color: #2A3F54; -fx-border-width: 2;" GridPane.rowIndex="9" />
+                  <JFXComboBox fx:id="uniteMiniPiece" focusColor="#6b6c6f" labelFloat="true" onAction="#uniteMiniPieceOnaction" onMouseClicked="#cmbunitePiececliked1" prefHeight="33.0" prefWidth="213.0" promptText="       Unité du MiniPièce" style="-fx-border-color: #2A3F54; -fx-border-width: 2;" unFocusColor="#a4a1a1" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="9" />
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="345.0" text="Du" textFill="#2a3f54" GridPane.columnSpan="3" GridPane.rowIndex="8" />
+               </children>
+            </GridPane>
+            <Button fx:id="btnClose" layoutX="730.0" layoutY="-16.0" mnemonicParsing="false" onAction="#btnCloseOnAction" prefHeight="32.0" prefWidth="30.0" stylesheets="@../../../css/btnOnText.css" />
+            <JFXRadioButton fx:id="ml" disable="true" layoutX="674.0" layoutY="24.0" text="." visible="false">
+               <toggleGroup>
+                  <ToggleGroup fx:id="grpp" />
+               </toggleGroup>
+            </JFXRadioButton>
+            <JFXRadioButton fx:id="gl" disable="true" layoutX="674.0" layoutY="41.0" text="." visible="false">
+               <toggleGroup>
+                  <ToggleGroup fx:id="grpp" />
+               </toggleGroup>
+            </JFXRadioButton>
+            <JFXRadioButton fx:id="pt" disable="true" layoutX="674.0" layoutY="59.0" text="." visible="false">
+               <toggleGroup>
+                  <ToggleGroup fx:id="grpp" />
+               </toggleGroup>
+            </JFXRadioButton>
+            <JFXRadioButton fx:id="pz" disable="true" layoutX="723.0" layoutY="33.0" text="." visible="false">
+               <toggleGroup>
+                  <ToggleGroup fx:id="grpp" />
+               </toggleGroup>
+            </JFXRadioButton>
+            <JFXRadioButton fx:id="bl" disable="true" layoutX="723.0" layoutY="50.0" style="-fx-background-color: white; -fx-border-color: white;" text="." visible="false">
+               <toggleGroup>
+                  <ToggleGroup fx:id="grpp" />
+               </toggleGroup>
+            </JFXRadioButton>
+         </children>
+      </AnchorPane>
+   </children>
+</Group>

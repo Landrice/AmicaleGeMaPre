@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane prefHeight="580.0" prefWidth="1004.0" stylesheets="@../../../css/MainStyle.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appController.app.stock.CurrentStoreEndController">
+   <children>
+      <AnchorPane id="AnchorPane" prefHeight="494.0" prefWidth="834.0">
+         <children>
+            <BorderPane layoutX="220.0" layoutY="140.0" prefHeight="479.0" prefWidth="639.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <bottom>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="66.0" prefWidth="944.0" spacing="20.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Button fx:id="btnAddNew" mnemonicParsing="false" onAction="#btnAddNewOnAction" text="Nouveau Produit" />
+                        <Button fx:id="btnAddNew1" layoutX="543.0" layoutY="26.0" mnemonicParsing="false" onAction="#btnAddNew1OnAction" text="Sauvegarder Produit du jour" />
+                        <Button fx:id="btnmodifproduitjour" mnemonicParsing="false" onAction="#btnMfdPJourOnAction" text="Mise à jour Produit du jour" />
+                        <Button fx:id="btnUpdate" mnemonicParsing="false" onAction="#btnUpdateOnAction" text="Modifier Produit" />
+                     </children>
+                     <BorderPane.margin>
+                        <Insets right="20.0" />
+                     </BorderPane.margin>
+                  </HBox>
+               </bottom>
+               <top>
+                  <BorderPane prefHeight="85.0" prefWidth="944.0" BorderPane.alignment="CENTER">
+                     <top>
+                        <HBox alignment="CENTER" prefHeight="44.0" prefWidth="944.0" spacing="10.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <TextField fx:id="tfSearch" onKeyReleased="#tfSearchOnKeyRelese" prefHeight="31.0" prefWidth="608.0" promptText="Recherche par Id ou par Nom du produits" />
+                              <Button fx:id="btnRefresh" mnemonicParsing="false" onAction="#btnRefreshOnACtion" prefHeight="31.0" prefWidth="32.0" text="OK" />
+                           </children>
+                        </HBox>
+                     </top>
+                     <center>
+                        <AnchorPane fx:id="apCombobox" BorderPane.alignment="CENTER">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="944.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-border-color: green; -fx-border-radius: 20;">
+                                       <children>
+                                          <JFXRadioButton fx:id="ml" disable="true" onAction="#selectectionCategorie" text="Militaire">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="btncategorieGroup" />
+                                             </toggleGroup></JFXRadioButton>
+                                          <JFXRadioButton fx:id="gl" disable="true" onAction="#selectectionCategorie" text="glacerie" toggleGroup="$btncategorieGroup" />
+                                          <JFXRadioButton fx:id="pt" disable="true" onAction="#selectectionCategorie" text="Patisserie" toggleGroup="$btncategorieGroup" />
+                                          <JFXRadioButton fx:id="pz" disable="true" onAction="#selectectionCategorie" text="Pizzeria" toggleGroup="$btncategorieGroup" />
+                                          <JFXRadioButton fx:id="bl" disable="true" layoutX="143.0" layoutY="22.0" onAction="#selectectionCategorie" text="Boulangeria" toggleGroup="$btncategorieGroup" />
+                                       </children>
+                                       <padding>
+                                          <Insets right="20.0" />
+                                       </padding>
+                                    </HBox>
+                                    <JFXDatePicker fx:id="dpDate" onAction="#dpDateOnAction" prefHeight="33.0" prefWidth="218.0" promptText="Selectionner date" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                     </center>
+                  </BorderPane>
+               </top>
+               <left>
+                  <BorderPane prefHeight="429.0" prefWidth="220.0" BorderPane.alignment="CENTER">
+                     <center>
+                        <TableView fx:id="tableview" onMouseClicked="#tableviewOnClick" prefHeight="429.0" prefWidth="239.0" BorderPane.alignment="CENTER">
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                           <columns>
+                              <TableColumn fx:id="clmproduits" prefWidth="75.0" text="Produits" />
+                           </columns>
+                        </TableView>
+                     </center>
+                  </BorderPane>
+               </left>
+               <center>
+                  <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="429.0" prefWidth="693.0">
+                           <children>
+                              <Label fx:id="lblproduits" alignment="CENTER" prefHeight="38.0" prefWidth="699.0">
+                                 <font>
+                                    <Font size="26.0" />
+                                 </font>
+                              </Label>
+                              <GridPane alignment="CENTER" prefHeight="432.0" prefWidth="670.0" style="-fx-border-color: green; -fx-border-radius: 30;">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <TextField fx:id="tfreport" GridPane.columnIndex="1" />
+                                    <TextField fx:id="tfnbunite" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <TextField fx:id="tfproduction" onKeyReleased="#unitetyped" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <TextField fx:id="tfamical" onKeyReleased="#unitetypedStock" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="351.0" text="Report" />
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="341.0" text="Nombre par Unité" GridPane.rowIndex="1" />
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="354.0" text="Production" GridPane.rowIndex="3" />
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="337.0" text="Amical" GridPane.rowIndex="4" />
+                                    <TextField fx:id="tfstock" editable="false" layoutX="345.0" layoutY="316.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="324.0" prefHeight="17.0" prefWidth="346.0" text="Stock" GridPane.rowIndex="5" />
+                                    <TextField fx:id="tfingredients" layoutX="345.0" layoutY="331.0" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="339.0" prefHeight="17.0" prefWidth="347.0" text="Quantite Ingredients" visible="false" GridPane.rowIndex="7" />
+                                    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="199.0" prefHeight="17.0" prefWidth="354.0" text="Unite" GridPane.rowIndex="2" />
+                                    <TextField fx:id="tFUnite" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="351.0" text="Date d'ajout du produit du jour" textFill="#ff0202" GridPane.rowIndex="8" />
+                                    <JFXDatePicker fx:id="dpdatejour" defaultColor="#ff0202" prefHeight="33.0" prefWidth="347.0" promptText="date d'ajout du produit du jour" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="241.0" prefHeight="17.0" prefWidth="346.0" text="Sortie " GridPane.rowIndex="6" />
+                                    <TextField fx:id="sortie" text="0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </center>
+            </BorderPane>
+         </children>
+         <padding>
+            <Insets left="30.0" right="30.0" />
+         </padding>
+      </AnchorPane>
+   </children>
+</StackPane>
